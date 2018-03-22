@@ -1,0 +1,14 @@
+<div class="todo-body">
+  <input class="todo-toggle" type="checkbox" value={{todo.finished}} (change)="toggleFinished()"/>
+  <div class="todo-note" (click)="onClick($event)" *ngIf="!editing">
+    <label>{{todo.note || placeholder}}</label>
+  </div>
+  <div class="todo-note" *ngIf="editing">
+    <input 
+      class="todo-input" 
+      id=todo-{{todo.id}} 
+      [(ngModel)]="todo.note ? todo.note : input" 
+      (keydown)="onKey($event)" 
+      [placeholder]="todo.note ? '' : placeholder" />
+  </div>
+</div>

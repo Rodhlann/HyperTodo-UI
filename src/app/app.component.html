@@ -1,0 +1,19 @@
+<h1>
+  Todos!</h1>
+<h4>Active</h4>
+<ul>
+  <li *ngFor="let todo of todos">
+    <div *ngIf="(!todo.finished)">
+      <app-todo [todo]=todo></app-todo>
+    </div>
+  </li>
+</ul>
+<br/>
+<h4>Complete</h4>
+<ul>
+  <li *ngFor="let todo of todos">
+    <div *ngIf="(todo.finished)">
+      <app-todo [todo]=todo></app-todo>
+    </div>
+  </li>
+</ul>
