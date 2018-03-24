@@ -20,17 +20,8 @@
   </ul>
 </div>
 <div class="menu-view" *ngIf="(showMenuView)">
-  <div class="menu-back" (click)="toggleMenuView()">←</div>
-  <div class="avatar-menu-view"></div>
-  <label class="user-name">{{user.firstName}} {{user.lastName}}</label>
-  <div class="menu-content">
-    <div class="menu-item">
-      <label class="menu-text">Settings</label>
-    </div>
-    <div class="menu-item" (click)="logOut()">
-      <label class="menu-text">Log Out</label>
-    </div>
-    <br>
-    version 0.1
-  </div>
+  <app-menu 
+    [user]=user
+    (toggleMenuView)=toggleMenuView($event) >
+  </app-menu>
 </div>

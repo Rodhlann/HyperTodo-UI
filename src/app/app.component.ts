@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter } from '@angular/core';
 import { Todo, Urgency } from './models/todo';
 import { User } from './models/user';
 import { TodoService } from './service/todo.service';
@@ -44,19 +44,14 @@ export class AppComponent {
   constructor(private todoService: TodoService) { }
 
   ngOnInit() {
-    this.user
     this.todoService.getTodos()
       .subscribe(
         (todos) => this.todos = todos[0],
-        (error) => console.debug(error)
+        (error) => console.log(error)
       );
   }
 
-  toggleMenuView() { 
+  toggleMenuView() {
     this.showMenuView = !this.showMenuView;
-  }
-
-  logOut() { 
-    console.log("bye");
   }
 }

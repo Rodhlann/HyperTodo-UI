@@ -1,16 +1,17 @@
 import { Component, OnInit, Renderer2, Input } from '@angular/core';
-import { Todo, Urgency } from '../models/todo';
+import { Todo, Urgency } from '../../models/todo';
 
 @Component({
   selector: 'app-todo',
   templateUrl: './todos.component.html',
+  inputs: ['todo'],
   styleUrls: ['./todos.component.less']
 })
 export class TodosComponent implements OnInit {
   editing: Boolean = false;
   input: string;
-  placeholder: string = 'New note!';
-  @Input() todo: Todo;
+  placeholder = 'New note!';
+  public todo: Todo;
 
   constructor(private renderer: Renderer2) { }
 
@@ -19,7 +20,7 @@ export class TodosComponent implements OnInit {
   onClick(event): void {
     this.editing = !this.editing;
     setTimeout(() => {
-      const input = this.renderer.selectRootElement("#todo-" + this.todo.id);
+      const input = this.renderer.selectRootElement('#todo-' + this.todo.id);
       input.focus();
     }, 0);
   }

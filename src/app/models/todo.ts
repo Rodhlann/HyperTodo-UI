@@ -1,4 +1,4 @@
-export enum Urgency { None, Low, Medium, High };
+export enum Urgency { None, Low, Medium, High }
 
 export class Todo {
   id: number;

@@ -5,21 +5,30 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 import { AppComponent } from './app.component';
-import { TodosComponent } from './todos/todos.component';
+import { TodosComponent } from './component/todos/todos.component';
+import { MenuComponent } from './component/menu/menu.component';
+import { CredentialsComponent } from './component/credentials/credentials.component';
+
 import { TodoService } from './service/todo.service';
+import { UserService } from './service/user.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodosComponent
+    TodosComponent,
+    MenuComponent,
+    CredentialsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule,
+    HttpClientModule
   ],
-  providers: [TodoService],
+  providers: [
+    TodoService,
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
