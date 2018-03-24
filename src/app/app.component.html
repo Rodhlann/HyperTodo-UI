@@ -1,7 +1,9 @@
 <div class="main-view" *ngIf="(!showMenuView)">
   <h1>Todos!</h1>
   <div class="avatar-main-view" (click)="toggleMenuView()"></div>
+  <br/><br/>
   <h4>Active</h4>
+  <div class="add-button" (click)="addTodo()">+</div>
   <ul>
     <li *ngFor="let todo of todos">
       <div *ngIf="(!todo.finished)">
@@ -9,7 +11,7 @@
       </div>
     </li>
   </ul>
-  <br/>
+  <br/><br/>
   <h4>Complete</h4>
   <ul>
     <li *ngFor="let todo of todos">
@@ -18,6 +20,9 @@
       </div>
     </li>
   </ul>
+  <br/>
+  <h4>Categories</h4>
+  <div class="add-button">+</div>
 </div>
 <div class="menu-view" *ngIf="(showMenuView)">
   <app-menu 

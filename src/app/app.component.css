@@ -5,6 +5,12 @@ h1 {
   display: inline;
 }
 
+h4 { 
+  display: inline;
+  top: 20px;
+  bottom: 20px;
+}
+
 ul {
   list-style-type: none;
   padding: 0px;
@@ -27,4 +33,22 @@ ul {
   box-shadow: 0px 2px #888888;
   display: inline;
   content:url(https://vignette.wikia.nocookie.net/spongebob/images/2/20/Patrick_925.gif/revision/latest?cb=20150411183115);
+}
+
+.add-button {
+  height: 20px;
+  width: 20px;
+  outline: none;
+  display: inline;
+  float: right;
+  padding: 0px;
+  font-size: 33px;
+  text-align: center;
+  line-height: 22px;
+  vertical-align: middle;
+  border: solid 2px #369;
+  color: #369;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0px 1px #888888;
 }

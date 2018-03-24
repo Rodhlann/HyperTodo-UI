@@ -8,6 +8,7 @@
       class="todo-input" 
       id=todo-{{todo.id}} 
       [(ngModel)]="todo.note ? todo.note : input" 
+      (focusout)="stopEditing($event)"
       (keydown)="onKey($event)" 
       [placeholder]="todo.note ? '' : placeholder" />
   </div>

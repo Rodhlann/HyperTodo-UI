@@ -33,9 +33,13 @@ export class TodosComponent implements OnInit {
 
   onKey(event: any) {
     if (event.key === 'Enter') {
-      this.todo.note = (this.input || event.target.value) || this.todo.note;
-      this.input = '';
-      this.editing = !this.editing;
+      this.stopEditing(event);
     }
+  }
+
+  stopEditing(event) {
+    this.todo.note = (this.input || event.target.value) || this.todo.note;
+    this.input = '';
+    this.editing = !this.editing;
   }
 }

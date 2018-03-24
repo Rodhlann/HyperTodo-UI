@@ -54,4 +54,17 @@ export class AppComponent {
   toggleMenuView() {
     this.showMenuView = !this.showMenuView;
   }
+
+  addTodo() {
+    const todoNew: Todo = {
+      id: 1,
+      note: 'New note!',
+      urgency: Urgency.None,
+      priority: 1,
+      dueDate: new Date(),
+      category: 0,
+      finished: false,
+    };
+    this.todos.push(todoNew);
+  }
 }
