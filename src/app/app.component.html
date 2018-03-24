@@ -1,19 +1,36 @@
-<h1>
-  Todos!</h1>
-<h4>Active</h4>
-<ul>
-  <li *ngFor="let todo of todos">
-    <div *ngIf="(!todo.finished)">
-      <app-todo [todo]=todo></app-todo>
+<div class="main-view" *ngIf="(!showMenuView)">
+  <h1>Todos!</h1>
+  <div class="avatar-main-view" (click)="toggleMenuView()"></div>
+  <h4>Active</h4>
+  <ul>
+    <li *ngFor="let todo of todos">
+      <div *ngIf="(!todo.finished)">
+        <app-todo [todo]=todo></app-todo>
+      </div>
+    </li>
+  </ul>
+  <br/>
+  <h4>Complete</h4>
+  <ul>
+    <li *ngFor="let todo of todos">
+      <div *ngIf="(todo.finished)">
+        <app-todo [todo]=todo></app-todo>
+      </div>
+    </li>
+  </ul>
+</div>
+<div class="menu-view" *ngIf="(showMenuView)">
+  <div class="menu-back" (click)="toggleMenuView()">←</div>
+  <div class="avatar-menu-view"></div>
+  <label class="user-name">{{user.firstName}} {{user.lastName}}</label>
+  <div class="menu-content">
+    <div class="menu-item">
+      <label class="menu-text">Settings</label>
     </div>
-  </li>
-</ul>
-<br/>
-<h4>Complete</h4>
-<ul>
-  <li *ngFor="let todo of todos">
-    <div *ngIf="(todo.finished)">
-      <app-todo [todo]=todo></app-todo>
+    <div class="menu-item" (click)="logOut()">
+      <label class="menu-text">Log Out</label>
     </div>
-  </li>
-</ul>
+    <br>
+    version 0.1
+  </div>
+</div>

@@ -5,7 +5,7 @@ export class Todo {
   note: string;
   urgency: Urgency;
   priority: number;
-  date: Date;
+  dueDate: Date;
   category: number;
   finished: boolean;
 }

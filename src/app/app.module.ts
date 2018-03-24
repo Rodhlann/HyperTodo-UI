@@ -1,11 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 import { AppComponent } from './app.component';
 import { TodosComponent } from './todos/todos.component';
-import { ApiService } from './service/api.service';
+import { TodoService } from './service/todo.service';
 
 
 @NgModule({
@@ -15,9 +16,10 @@ import { ApiService } from './service/api.service';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
-  providers: [ApiService],
+  providers: [TodoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

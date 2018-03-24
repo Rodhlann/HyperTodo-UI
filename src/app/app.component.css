@@ -2,8 +2,70 @@ h1 {
   color: #369;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 250%;
+  display: inline;
+}
+
+.app-root {
+  height: 1000px;
+  width: 500px;
+  padding: 50px 50px;
+  background-color: rgb(50, 194, 194);
+}
+
+.avatar-main-view { 
+  height: 40px;
+  width: 40px;
+  margin-left: 8em;
+  background-color: white;
+  border: 2px #369 solid;
+  border-radius: 50%;
+  box-shadow: 0px 2px #888888;
+  display: inline;
+  content:url(https://vignette.wikia.nocookie.net/spongebob/images/2/20/Patrick_925.gif/revision/latest?cb=20150411183115);
+}
+
+.user-name { 
+  font-weight: bold;
+  margin: 1em 7em 1em 7em;
+}
+
+.avatar-menu-view {
+  height: 60px;
+  width: 60px;
+  margin: 1em 7.5em 1em 7.5em;
+  background-color: white;
+  border: 2px #369 solid;
+  border-radius: 50%;
+  box-shadow: 0px 2px #888888;
+  content:url(https://vignette.wikia.nocookie.net/spongebob/images/2/20/Patrick_925.gif/revision/latest?cb=20150411183115);
+}
+
+.menu-content {
+  box-shadow: 0px 1px #888888;
+  border-radius: 5px;
+  background-color: white;
+  border: solid 1px lightgray;
+  height: 11em;
+  margin-top: 2em;
+  width: 19.5em;
+  text-align: center;
+}
+
+.menu-item { 
+  border-bottom: 1px solid #cdcdcd;
+  width: 100%;
+}
+
+.menu-text { 
+  margin: 1em;
+  width: 10em;
+  vertical-align: middle;
+  display: inline-block;
+  font-size: 20px;
+  color: #369;
 }
 
 ul {
   list-style-type: none;
+  padding: 0px;
 }
