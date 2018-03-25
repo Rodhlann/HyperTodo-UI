@@ -13,6 +13,7 @@ import { UserService } from './service/user.service';
 export class AppComponent {
   title = 'app';
   showMenuView = false;
+  categories:Array<string> = [];
 
   user: User = {
     id: 0,
@@ -66,5 +67,14 @@ export class AppComponent {
       finished: false,
     };
     this.todos.push(todoNew);
+  }
+
+  // CATEGORY WORKFLOW
+  showCategoryEditor() { 
+
+  }
+
+  saveCategory() { 
+
   }
 }
