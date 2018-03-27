@@ -1,15 +1,20 @@
 <div class="todo-body">
-  <input class="todo-toggle" type="checkbox" value={{todo.finished}} (change)="toggleFinished()"/>
-  <div class="todo-note" (click)="onClick($event)" *ngIf="!editing">
+  <input class="todo-toggle" type="checkbox" value={{todo.finished}} (change)="toggleFinished()" />
+  <div class="todo-note" *ngIf="!editing">
     <label>{{todo.note || placeholder}}</label>
+    <button class="todo-action-edit" (click)="onClick($event)">
+      <img src="https://cdn3.iconfinder.com/data/icons/glypho-free/64/pen-checkbox-128.png" />
+    </button>
   </div>
   <div class="todo-note" *ngIf="editing">
     <input 
+      #noteInput
       class="todo-input" 
       id=todo-{{todo.id}} 
-      [(ngModel)]="todo.note ? todo.note : input" 
-      (focusout)="stopEditing($event)"
-      (keydown)="onKey($event)" 
+      [(ngModel)]="todo.note ? todo.note : input"
       [placeholder]="todo.note ? '' : placeholder" />
+    <button class="todo-action-confirm" (click)="stopEditing($event)">
+      <img src="https://cdn0.iconfinder.com/data/icons/geosm-e-commerce/48/check-128.png" />
+    </button>
   </div>
 </div>

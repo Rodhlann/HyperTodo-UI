@@ -14,6 +14,8 @@ export class AppComponent {
   title = 'app';
   showMenuView = false;
   categories:Array<string> = [];
+  showActive: boolean = true;
+  showComplete: boolean = false;
 
   user: User = {
     id: 0,
@@ -69,12 +71,11 @@ export class AppComponent {
     this.todos.push(todoNew);
   }
 
-  // CATEGORY WORKFLOW
-  showCategoryEditor() { 
-
+  toggleActiveView() { 
+    this.showActive = !this.showActive;
   }
 
-  saveCategory() { 
-
+  toggleCompleteView() { 
+    this.showComplete = !this.showComplete;
   }
 }

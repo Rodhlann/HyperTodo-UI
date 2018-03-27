@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2, Input } from '@angular/core';
+import { Component, OnInit, Renderer2, Input, ViewChild } from '@angular/core';
 import { Todo, Urgency } from '../../models/todo';
 
 @Component({
@@ -12,6 +12,7 @@ export class TodosComponent implements OnInit {
   input: string;
   placeholder = 'New note!';
   public todo: Todo;
+  @ViewChild('noteInput') noteInput;
 
   constructor(private renderer: Renderer2) { }
 
@@ -31,14 +32,8 @@ export class TodosComponent implements OnInit {
     }, 100);
   }
 
-  onKey(event: any) {
-    if (event.key === 'Enter') {
-      this.stopEditing(event);
-    }
-  }
-
   stopEditing(event) {
-    this.todo.note = (this.input || event.target.value) || this.todo.note;
+    this.todo.note = (this.input || this.noteInput.nativeElement.value) || this.todo.note;
     this.input = '';
     this.editing = !this.editing;
   }

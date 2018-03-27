@@ -1,32 +1,44 @@
 <div class="main-view" *ngIf="(!showMenuView)">
-  <h1>Todos!</h1>
-  <div class="avatar-main-view" (click)="toggleMenuView()"></div>
-  <br/><br/>
+  <div class="header">
+    <button class="menu-left-button">
+      <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/61778-200.png" />
+    </button>
+    <h1>Hyper Todo</h1>
+    <button class="menu-right-button" (click)="toggleMenuView()">
+      <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/1241-200.png" />
+    </button>
+  </div>
+  <br/>
+  <button class="toggle-view-button" (click)="toggleActiveView()">
+    <img *ngIf="(showActive)" src="https://cdn0.iconfinder.com/data/icons/arrows-android-l-lollipop-icon-pack/24/expand2-128.png"
+    />
+    <img *ngIf="(!showActive)" src="https://cdn0.iconfinder.com/data/icons/arrows-android-l-lollipop-icon-pack/24/next-128.png"
+    />
+  </button>
   <h4>Active</h4>
-  <div class="add-button" (click)="addTodo()">+</div>
-  <ul>
+  <ul *ngIf="(showActive)">
     <li *ngFor="let todo of todos">
-      <div *ngIf="(!todo.finished)">
-        <app-todo [todo]=todo></app-todo>
-      </div>
-    </li>
-  </ul>
-  <br/><br/>
-  <h4>Complete</h4>
-  <ul>
-    <li *ngFor="let todo of todos">
-      <div *ngIf="(todo.finished)">
-        <app-todo [todo]=todo></app-todo>
-      </div>
+      <app-todo [todo]=todo *ngIf="(!todo.finished)"></app-todo>
     </li>
   </ul>
   <br/>
-  <h4>Categories</h4>
-  <div class="add-button">+</div>
+  <br/>
+  <button class="toggle-view-button" (click)="toggleCompleteView()">
+    <img *ngIf="(showComplete)" src="https://cdn0.iconfinder.com/data/icons/arrows-android-l-lollipop-icon-pack/24/expand2-128.png"
+    />
+    <img *ngIf="(!showComplete)" src="https://cdn0.iconfinder.com/data/icons/arrows-android-l-lollipop-icon-pack/24/next-128.png"
+    />
+  </button>
+  <h4>Complete</h4>
+  <ul *ngIf="(showComplete)">
+    <li *ngFor="let todo of todos">
+      <app-todo [todo]=todo *ngIf="(todo.finished)"></app-todo>
+    </li>
+  </ul>
+  <br/>
+  <button class="add-button" (click)="addTodo()">
+    <img src="https://image.flaticon.com/icons/png/128/54/54443.png" />
+  </button>
 </div>
-<div class="menu-view" *ngIf="(showMenuView)">
-  <app-menu 
-    [user]=user
-    (toggleMenuView)=toggleMenuView($event) >
-  </app-menu>
-</div>
+<app-menu class="menu-view" *ngIf="(showMenuView)" [user]=user (toggleMenuView)=toggleMenuView($event)>
+</app-menu>
