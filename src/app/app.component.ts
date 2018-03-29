@@ -13,7 +13,9 @@ import { UserService } from './service/user.service';
 export class AppComponent {
   title = 'app';
   showMenuView = false;
-  categories:Array<string> = [];
+  showCategoriesView = false; 
+  categories:Array<string> = ['Groceries'];
+  selectedCategory: string;
   showActive: boolean = true;
   showComplete: boolean = false;
 
@@ -30,7 +32,7 @@ export class AppComponent {
     urgency: Urgency.None,
     priority: 0,
     dueDate: new Date(),
-    category: 0,
+    category: '',
     finished: false,
   };
   todo1: Todo = {
@@ -39,7 +41,7 @@ export class AppComponent {
     urgency: Urgency.None,
     priority: 1,
     dueDate: new Date(),
-    category: 0,
+    category: 'Groceries',
     finished: false,
   };
   todos = [this.todo, this.todo1];
@@ -58,6 +60,18 @@ export class AppComponent {
     this.showMenuView = !this.showMenuView;
   }
 
+  toggleCategoriesView() { 
+    this.showCategoriesView = !this.showCategoriesView;
+  }
+
+  createNewCategory(name) {
+    this.categories.push(name);
+  }
+
+  selectCategory(category) { 
+    this.selectedCategory = category || '';
+  }
+
   addTodo() {
     const todoNew: Todo = {
       id: 1,
@@ -65,7 +79,7 @@ export class AppComponent {
       urgency: Urgency.None,
       priority: 1,
       dueDate: new Date(),
-      category: 0,
+      category: '',
       finished: false,
     };
     this.todos.push(todoNew);

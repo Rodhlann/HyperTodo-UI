@@ -3,6 +3,11 @@
   outline: none;
 }
 
+.header { 
+  background-color: #87ceeb;
+  box-shadow: 0rem 2px 10px #253f4a;
+}
+
 h1 {
   color: #369;
   font-family: Arial, Helvetica, sans-serif;

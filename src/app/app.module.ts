@@ -11,6 +11,8 @@ import { CredentialsComponent } from './component/credentials/credentials.compon
 
 import { TodoService } from './service/todo.service';
 import { UserService } from './service/user.service';
+import { CategoriesComponent } from './component/categories/categories.component';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -18,12 +20,14 @@ import { UserService } from './service/user.service';
     AppComponent,
     TodosComponent,
     MenuComponent,
-    CredentialsComponent
+    CredentialsComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule
   ],
   providers: [
     TodoService,

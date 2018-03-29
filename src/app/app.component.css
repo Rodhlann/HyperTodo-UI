@@ -23,18 +23,13 @@ ul {
   padding: 0px;
 }
 
+.header { 
+  text-align: center;
+}
+
 .app-root {
   padding: 50px 50px;
   background-color: white;
-}
-
-.main-view {
-  /* width: 320px; */
-}
-
-.header { 
-  background-color: #87ceeb;
-  box-shadow: 0rem 2px 10px #253f4a;
 }
 
 .toggle-view-button {

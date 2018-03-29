@@ -1,12 +1,21 @@
-<div class="menu-back" (click)="goBack()"><b>←</b></div>
-<div class="avatar-menu-view"></div>
-<label class="user-name">{{user.firstName}} {{user.lastName}}</label>
+<div class="header">
+  <h1>Settings</h1>
+<div class="menu-back" (click)="goBack()">
+  <img src="https://cdn1.iconfinder.com/data/icons/material-core/20/settings-128.png"/>
+</div>
+</div>
+<div class="avatar-menu-view">
+  <img src="https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_format_list_numbered_48px-128.png"/>
+</div>
+<div class="user-name">{{user.email}}</div>
 <div class="menu-content">
   <div class="menu-item">
-    <label class="menu-text">Settings</label>
+    <label class="menu-text">Preferences</label>
   </div>
   <div class="menu-item" (click)="logOut()">
     <label class="menu-text">Log Out</label>
   </div>
-  <br> version 0.1
+  <div class="version">
+    version 0.1
+  </div>
 </div>

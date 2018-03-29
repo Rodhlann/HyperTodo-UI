@@ -6,6 +6,6 @@ export class Todo {
   urgency: Urgency;
   priority: number;
   dueDate: Date;
-  category: number;
+  category: string;
   finished: boolean;
 }
