@@ -1,0 +1,99 @@
+@import 'https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css';
+html { 
+  font-size: 10px;
+}
+
+h1 {
+  color: #369;
+  font-family: American Typewriter, serif;
+  font-size: 250%;
+  line-height: 3rem;
+  display: inline;
+}
+
+h4 { 
+  font-size: 150%;
+  line-height: 2rem;
+  display: inline-block;
+  padding: .5rem;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0px;
+}
+
+.header { 
+  text-align: center;
+}
+
+.app-root {
+  padding: 50px 50px;
+  background-color: white;
+}
+
+.toggle-view-button {
+  width: 1.5rem;  
+  height: 1.5rem;
+  margin: 0rem .5rem .5rem .5rem;
+  background-color: transparent;
+  outline: none;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  border: none;
+  cursor: pointer;
+  padding: 0px;
+}
+
+.menu-right-button { 
+  width: 2rem;  
+  height: 2rem;
+  margin: .5rem;
+  background-color: transparent;
+  outline: none;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  border: none;
+  cursor: pointer;
+  padding: 0px;
+  float: right;
+}
+
+.menu-left-button { 
+  width: 2rem;  
+  height: 2rem;
+  margin: .5rem;
+  background-color: transparent;
+  outline: none;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  border: none;
+  cursor: pointer;
+  padding: 0px;
+  float: left;
+}
+
+.add-button {
+  position: absolute;
+  margin: .5rem;
+  bottom: 0;
+  right: 0;
+  width: 3rem;
+  height: 3rem;
+  background-color: transparent;
+  outline: none;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  border: none;
+  cursor: pointer;
+  padding: 0px;
+}
+
+img { 
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,32 @@
+/* Application-wide Styles */
+.btn:focus {
+  outline: none;
+}
+
+.header { 
+  background-color: #87ceeb;
+  box-shadow: 0rem 2px 10px #253f4a;
+}
+
+h1 {
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}
+h2, h3 {
+  color: #444;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+}
+body {
+  margin: 2em;
+  background-color: rgb(233, 233, 233);
+}
+body, input[text], button {
+  color: rgb(0, 62, 69);
+  font-family: Cambria, Georgia;
+}
+/* everywhere else */
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}

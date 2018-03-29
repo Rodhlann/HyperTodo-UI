@@ -1,0 +1,90 @@
+.todo-body {
+  background-color: white;
+  margin-bottom: 3px;
+  width: 100%;
+}
+
+.todo-toggle {
+  -webkit-appearance: none;
+  border: solid 1px lightgray;
+  padding: .8rem;
+	border-radius: 3px;
+  display: inline-block;
+	position: relative;
+  background-color: white;
+  outline: none;
+  margin: 1rem;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.todo-note {
+  width: 80%;
+  display: inline-block;
+  font-size: 20px;
+  line-height: 2rem;
+  color: #369;
+  vertical-align: middle;
+
+  & label { 
+    max-width: 80%; 
+    display:inline-block;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+  }
+}
+
+.todo-input {
+  width: 80%;
+  display: inline-block;
+  font-size: 20px;
+  color: #369;
+  vertical-align: middle;
+  padding: 0px;
+  outline: none;
+  border: none;
+  cursor: text;
+  background-color: white;
+}
+
+.todo-toggle:checked {
+  background-color: #369;
+  border: 1px solid lightgray;
+  color: #99a1a7;
+}
+
+.todo-action-confirm { 
+  width: 2rem;  
+  height: 2rem;
+  background-color: transparent;
+  outline: none;
+  display: inline-block;
+  line-height: 1.7rem;
+  border: none;
+  cursor: pointer;
+  padding: 0rem;
+  margin: 0rem 1rem 0rem 0rem;
+  margin-right: .3rem;
+  float: right;
+}
+
+.todo-action-edit { 
+  width: 2rem;  
+  height: 2rem;
+  background-color: transparent;
+  outline: none;
+  display: inline-block;
+  line-height: 1.7rem;
+  border: none;
+  cursor: pointer;
+  padding: 0px;
+  margin-right: .3rem;
+  float: right;
+}
+
+img { 
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,38 @@
+<div class="header">
+  <h1>Categories</h1>
+  <div class="categories-back" (click)="goBack()">
+    <img src="https://cdn0.iconfinder.com/data/icons/very-basic-android-l-lollipop-icon-pack/24/menu-128.png" />
+  </div>
+</div>
+<div class="avatar-menu-view">
+  <img src="https://cdn4.iconfinder.com/data/icons/essential-part-2/32/162-Shopping_Bag-128.png" />
+</div>
+<div class="menu-content">
+  <ul>
+    <li>
+      <button class="menu-item primary-item" (click)="clickCategory()">
+        <div class="menu-text">Show All</div>
+      </button>
+    </li>
+    <hr/>
+    <li *ngFor="let category of categories">
+      <button class="menu-item" (click)="clickCategory(category)">
+        <div *ngIf="selectedCategory === category" class="selected-icon">
+          <img src="https://cdn2.iconfinder.com/data/icons/font-awesome/1792/circle-thin-128.png" />
+        </div>
+        <div class="menu-text">{{category}}</div>
+      </button>
+    </li>
+    <li>
+      <div class="todo-note" *ngIf="editing">
+        <input class="todo-input" [(ngModel)]="localCategory" placeholder="Work, Vacation, Pizza Toppings..." />
+        <button class="todo-action-confirm" (click)="saveCategory()">
+          <img src="https://cdn0.iconfinder.com/data/icons/geosm-e-commerce/48/check-128.png" />
+        </button>
+      </div>
+    </li>
+  </ul>
+</div>
+<button class="add-button {{editing ? 'disabled-button' : 'enabled-button'}}" [disabled]="editing" (click)="addCategory()">
+  <img src="https://image.flaticon.com/icons/png/128/54/54443.png" />
+</button>

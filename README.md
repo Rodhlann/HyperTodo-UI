@@ -1,5 +1,16 @@
 # HyperTodo v0.1
 
+Dependencies: 
+1. Angular CLI 
+
+To run clone the code and run `ng serve`
+Currently the app is configured to work best with a mobile resolution
+  - open chrome developer tools
+  - select phone icon in top left of developer tools
+  - select iPhone 6/7/8
+
+---
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.8.
 
 ## Development server
@@ -14,11 +25,11 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-## Running unit tests
+## Running unit tests (not ready)
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Running end-to-end tests (not ready)
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
