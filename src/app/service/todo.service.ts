@@ -9,11 +9,16 @@ import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class TodoService {
-
   constructor(private http: HttpClient) { }
 
-  public getTodos() {
-    return this.http.get('api/todos');
+  defaultURL:string = 'http://localhost:40258/api/Todo/'
+
+  public getTodosByUserId(userId:number) {
+    return this.http.get(this.defaultURL + 'GetAllByUserId/' + userId);
+  }
+
+  public getTodosById(todoId:number) {
+    return this.http.get(this.defaultURL + 'GetTodoById/' + todoId);
   }
 
   public createTodo(todo: Todo) {
