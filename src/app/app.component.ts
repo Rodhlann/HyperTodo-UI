@@ -26,14 +26,14 @@ export class AppComponent {
     email: 'timpepper@email.com'
   };
 
-  todos: {};
+  todos: Array<Todo>;
 
   constructor(private todoService: TodoService) { }
 
   ngOnInit() {
     this.todoService.getTodosByUserId(this.user.id)
       .subscribe(
-        (todos) => this.todos = todos,
+        (todos) => this.todos = Object.values(todos),
         (error) => console.log(error)
       );
   }
@@ -56,15 +56,29 @@ export class AppComponent {
 
   addTodo() {
     const todoNew: Todo = {
-      id: 1,
+      id: -1,
       note: 'New note!',
       urgency: Urgency.None,
-      priority: 1,
+      priority: 0,
       dueDate: new Date(),
       category: '',
       finished: false,
     };
-    this.todos;
+    this.todoService.createTodo(todoNew)
+      .subscribe(
+        (todos) => this.todos = Object.values(todos),
+        (error) => console.log(error)
+      );
+  }
+
+  setTodoToFinished(todoId) {
+    const todoToUpdate = this.todos.filter((todo) => todo.id === todoId)[0];
+    todoToUpdate.finished = !todoToUpdate.finished;
+    this.todoService.updateTodo(todoToUpdate)
+    .subscribe(
+      (todo) => null,
+      (error) => console.log(error)
+    );
   }
 
   toggleActiveView() { 

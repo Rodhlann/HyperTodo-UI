@@ -17,15 +17,15 @@ export class TodoService {
     return this.http.get(this.defaultURL + 'GetAllByUserId/' + userId);
   }
 
-  public getTodosById(todoId:number) {
-    return this.http.get(this.defaultURL + 'GetTodoById/' + todoId);
-  }
-
   public createTodo(todo: Todo) {
-    return this.http.post('api/todos', todo);
+    return this.http.put(this.defaultURL + 'CreateTodo', todo);
   }
 
   public updateTodo(todo: Todo) {
-    return this.http.put('api/todos/' + todo.id, todo);
+    return this.http.put(this.defaultURL + 'UpdateTodo', todo);
+  }
+
+  public deleteTodo(todoId:number) { 
+    return this.http.delete(this.defaultURL + 'DeleteTodoById/' + todoId);
   }
 }

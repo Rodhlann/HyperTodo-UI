@@ -32,7 +32,11 @@
   <h4>Complete</h4>
   <ul *ngIf="(showComplete)">
     <li *ngFor="let todo of todos">
-      <app-todo [todo]=todo *ngIf="(todo.finished && (todo.category === selectedCategory || !selectedCategory))"></app-todo>
+      <app-todo 
+        [todo]=todo 
+        (setTodoToFinished)=setTodoToFinished($event)
+        *ngIf="(todo.finished && (todo.category === selectedCategory || !selectedCategory))">
+      </app-todo>
     </li>
   </ul>
   <br/>
@@ -40,7 +44,11 @@
     <img src="https://image.flaticon.com/icons/png/128/54/54443.png" />
   </button>
 </div>
-<app-menu *ngIf="(showMenuView)" [user]=user (toggleMenuView)=toggleMenuView($event)></app-menu>
+<app-menu 
+  *ngIf="(showMenuView)" 
+  [user]=user 
+  (toggleMenuView)=toggleMenuView($event)>
+</app-menu>
 <app-categories 
   *ngIf="(showCategoriesView)" 
   [categories]=categories 

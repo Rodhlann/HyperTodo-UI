@@ -1,10 +1,11 @@
-import { Component, OnInit, Renderer2, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Renderer2, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { Todo, Urgency } from '../../models/todo';
 
 @Component({
   selector: 'app-todo',
   templateUrl: './todos.component.html',
   inputs: ['todo'],
+  outputs: ['setTodoToFinished'],
   styleUrls: ['./todos.component.less']
 })
 export class TodosComponent implements OnInit {
@@ -12,6 +13,7 @@ export class TodosComponent implements OnInit {
   input: string;
   placeholder = 'New note!';
   public todo: Todo;
+  setTodoToFinished = new EventEmitter();
   @ViewChild('noteInput') noteInput;
 
   constructor(private renderer: Renderer2) { }
@@ -29,6 +31,7 @@ export class TodosComponent implements OnInit {
   toggleFinished() {
     setTimeout(() => {
       this.todo.finished = !this.todo.finished;
+      this.setTodoToFinished.next(this.todo.id);
     }, 100);
   }
 
