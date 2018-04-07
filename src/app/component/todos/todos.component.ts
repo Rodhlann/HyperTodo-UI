@@ -18,11 +18,11 @@ export class TodosComponent {
   todo: Todo;
 
   @Output()
-  setTodoToFinished = new EventEmitter<Todo>();
-  @Output()
-  setTodoToNotFinished = new EventEmitter<Todo>();
+  toggleTodoFinished = new EventEmitter<Todo>();
   @Output()
   deleteTodo = new EventEmitter<Todo>();
+  @Output()
+  updateTodo = new EventEmitter<Todo>();
 
   constructor(private renderer: Renderer2) { }
 
@@ -43,11 +43,7 @@ export class TodosComponent {
 
   toggleFinished() {
     setTimeout(() => {
-      if (this.todo.finished) {
-        this.setTodoToNotFinished.emit(this.todo);
-      } else {
-        this.setTodoToFinished.emit(this.todo);
-      }
+      this.toggleTodoFinished.emit(this.todo);
     }, 100);
   }
 
@@ -55,5 +51,6 @@ export class TodosComponent {
     this.todo.note = (this.input || this.noteInput.nativeElement.value) || this.todo.note;
     this.input = '';
     this.editing = !this.editing;
+    this.updateTodo.emit(this.todo);
   }
 }

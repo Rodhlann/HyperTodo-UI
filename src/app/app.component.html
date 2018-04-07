@@ -16,11 +16,15 @@
     />
   </button>
   <h4>Active</h4>
-  <ul *ngIf="(showActive)">
-    <li *ngFor="let todo of todos">
-      <app-todo [todo]=todo *ngIf="(!todo.finished && (todo.category === selectedCategory || !selectedCategory))"></app-todo>
-    </li>
-  </ul>
+  <div *ngIf="(showActive)">
+    <app-todo
+      *ngIf="(!todos[0].finished && (todos[0].category === selectedCategory || !selectedCategory))"
+      [todo]="todos[0]"
+      (toggleTodoFinished)=toggleTodoFinished($event)
+      (deleteTodo)=deleteTodo($event)
+      (updateTodo)=updateTodo($event)>
+    </app-todo>
+</div>
   <br/>
   <br/>
   <button class="toggle-view-button" (click)="toggleCompleteView()">
@@ -30,16 +34,15 @@
     />
   </button>
   <h4>Complete</h4>
-  <ul *ngIf="(showComplete)">
-    <li *ngFor="let todo of todos">
-      <app-todo
-        *ngIf="(todo.finished && (todo.category === selectedCategory || !selectedCategory))"
-        [todo]=todo
-        (setTodoToFinished)=setTodoToFinished($event)
-        (setTodoToNotFinished)=setTodoToNotFinished($event)>
-      </app-todo>
-    </li>
-  </ul>
+  <div *ngIf="(showComplete)">
+    <app-todo
+    *ngIf="(todos[0].finished && (todos[0].category === selectedCategory || !selectedCategory))"
+    [todo]="todos[0]"
+    (toggleTodoFinished)=toggleTodoFinished($event)
+    (deleteTodo)=deleteTodo($event)
+    (updateTodo)=updateTodo($event)>
+  </app-todo>
+  </div>
   <br/>
   <button class="add-button" (click)="addTodo()">
     <img src="https://image.flaticon.com/icons/png/128/54/54443.png" />

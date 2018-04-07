@@ -71,17 +71,20 @@ export class AppComponent implements OnInit {
       );
   }
 
-  setTodoToFinished(todo: Todo) {
-    todo.finished = true;
-    this.todoService.updateTodo(todo)
+  toggleTodoFinished(todo: Todo) {
+    todo.finished = !todo.finished;
+    this.updateTodo(todo);
+  }
+
+  deleteTodo(todo: Todo) {
+    this.todoService.deleteTodo(todo.id)
     .subscribe(
-      (updatedTodo: Todo) => null,
+      (todos) => this.todos = Object.values(todos),
       (error) => console.log(error)
     );
   }
 
-  setTodoToNotFinished(todo: Todo) {
-    todo.finished = false;
+  updateTodo(todo: Todo) {
     this.todoService.updateTodo(todo)
     .subscribe(
       (updatedTodo: Todo) => null,

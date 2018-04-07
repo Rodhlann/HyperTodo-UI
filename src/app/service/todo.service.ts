@@ -11,9 +11,9 @@ import 'rxjs/add/observable/throw';
 export class TodoService {
   constructor(private http: HttpClient) { }
 
-  defaultURL:string = 'http://localhost:40258/api/Todo/'
+  defaultURL = 'http://localhost:40258/api/Todo/';
 
-  public getTodosByUserId(userId:number) {
+  public getTodosByUserId(userId: number) {
     return this.http.get(this.defaultURL + 'GetAllByUserId/' + userId);
   }
 
@@ -25,7 +25,7 @@ export class TodoService {
     return this.http.put(this.defaultURL + 'UpdateTodo', todo);
   }
 
-  public deleteTodo(todoId:number) { 
+  public deleteTodo(todoId: number) {
     return this.http.delete(this.defaultURL + 'DeleteTodoById/' + todoId);
   }
 }
