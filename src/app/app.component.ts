@@ -1,4 +1,4 @@
-import { Component, EventEmitter } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { Todo, Urgency } from './models/todo';
 import { User } from './models/user';
 import { TodoService } from './service/todo.service';
@@ -10,14 +10,14 @@ import { UserService } from './service/user.service';
   styleUrls: ['./app.component.css'],
   providers: [TodoService, UserService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'app';
   showMenuView = false;
-  showCategoriesView = false; 
-  categories:Array<string> = ['Groceries'];
+  showCategoriesView = false;
+  categories: Array<string> = ['Groceries'];
   selectedCategory: string;
-  showActive: boolean = true;
-  showComplete: boolean = false;
+  showActive = true;
+  showComplete = false;
 
   user: User = {
     id: 0,
@@ -42,7 +42,7 @@ export class AppComponent {
     this.showMenuView = !this.showMenuView;
   }
 
-  toggleCategoriesView() { 
+  toggleCategoriesView() {
     this.showCategoriesView = !this.showCategoriesView;
   }
 
@@ -50,7 +50,7 @@ export class AppComponent {
     this.categories.push(name);
   }
 
-  selectCategory(category) { 
+  selectCategory(category) {
     this.selectedCategory = category || '';
   }
 
@@ -71,21 +71,29 @@ export class AppComponent {
       );
   }
 
-  setTodoToFinished(todoId) {
-    const todoToUpdate = this.todos.filter((todo) => todo.id === todoId)[0];
-    todoToUpdate.finished = !todoToUpdate.finished;
-    this.todoService.updateTodo(todoToUpdate)
+  setTodoToFinished(todo: Todo) {
+    todo.finished = true;
+    this.todoService.updateTodo(todo)
     .subscribe(
-      (todo) => null,
+      (updatedTodo: Todo) => null,
       (error) => console.log(error)
     );
   }
 
-  toggleActiveView() { 
+  setTodoToNotFinished(todo: Todo) {
+    todo.finished = false;
+    this.todoService.updateTodo(todo)
+    .subscribe(
+      (updatedTodo: Todo) => null,
+      (error) => console.log(error)
+    );
+  }
+
+  toggleActiveView() {
     this.showActive = !this.showActive;
   }
 
-  toggleCompleteView() { 
+  toggleCompleteView() {
     this.showComplete = !this.showComplete;
   }
 }

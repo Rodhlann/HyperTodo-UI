@@ -2,39 +2,45 @@ import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-categories',
-  inputs: ['showCategoriesView', 'categories', 'selectedCategory'],
-  outputs: ['toggleCategoriesView', 'createNewCategory', 'selectCategory'],
   templateUrl: './categories.component.html',
-  styleUrls: ['./categories.component.less'],
+  styleUrls: ['./categories.component.less']
 })
 export class CategoriesComponent implements OnInit {
-  public categories: Array<string>;
-  public showCategoriesView: boolean;
-  public toggleCategoriesView = new EventEmitter();
-  public createNewCategory = new EventEmitter();
-  public selectCategory = new EventEmitter();
-  public selectedCategory: string;
-  public localCategory: string;
   public editing = false;
+  public localCategory: string;
+
+  @Input()
+  categories: Array<string>;
+  @Input()
+  public showCategoriesView: boolean;
+  @Input()
+  public selectedCategory: string;
+
+  @Output()
+  toggleCategoriesView = new EventEmitter();
+  @Output()
+  createNewCategory = new EventEmitter();
+  @Output()
+  public selectCategory = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  addCategory() { 
+  addCategory() {
     this.editing = true;
   }
 
   saveCategory() {
     this.editing = false;
-    if(this.localCategory) {
+    if (this.localCategory) {
       this.createNewCategory.next(this.localCategory);
       this.localCategory = '';
     }
   }
 
-  clickCategory(category) { 
+  clickCategory(category) {
     this.selectCategory.next(category);
   }
 

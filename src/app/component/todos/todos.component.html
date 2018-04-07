@@ -13,8 +13,11 @@
       id=todo-{{todo.id}} 
       [(ngModel)]="todo.note ? todo.note : input"
       [placeholder]="todo.note ? '' : placeholder" />
-    <button class="todo-action-confirm" (click)="stopEditing($event)">
+    <button class="todo-action-confirm" (click)="stopEditing()">
       <img src="https://cdn0.iconfinder.com/data/icons/geosm-e-commerce/48/check-128.png" />
+    </button>
+    <button class="todo-action-confirm" (click)="deleteTodoAction()">
+      <img src="https://cdn0.iconfinder.com/data/icons/very-basic-android-l-lollipop-icon-pack/24/close-128.png" />
     </button>
   </div>
 </div>
