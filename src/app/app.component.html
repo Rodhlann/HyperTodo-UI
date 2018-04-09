@@ -17,13 +17,17 @@
   </button>
   <h4>Active</h4>
   <div *ngIf="(showActive)">
-    <app-todo
-      *ngIf="(!todos[0].finished && (todos[0].category === selectedCategory || !selectedCategory))"
-      [todo]="todos[0]"
-      (toggleTodoFinished)=toggleTodoFinished($event)
-      (deleteTodo)=deleteTodo($event)
-      (updateTodo)=updateTodo($event)>
-    </app-todo>
+    <ul>
+      <li *ngFor="let todo of todos">
+        <app-todo
+          *ngIf="(!todo.finished && (todo.category === selectedCategory || !selectedCategory))"
+          [todo]="todo"
+          (toggleTodoFinished)=toggleTodoFinished($event)
+          (deleteTodo)=deleteTodo($event)
+          (updateTodo)=updateTodo($event)>
+        </app-todo>
+      </li>
+    </ul>
 </div>
   <br/>
   <br/>
@@ -35,13 +39,17 @@
   </button>
   <h4>Complete</h4>
   <div *ngIf="(showComplete)">
-    <app-todo
-    *ngIf="(todos[0].finished && (todos[0].category === selectedCategory || !selectedCategory))"
-    [todo]="todos[0]"
-    (toggleTodoFinished)=toggleTodoFinished($event)
-    (deleteTodo)=deleteTodo($event)
-    (updateTodo)=updateTodo($event)>
-  </app-todo>
+    <ul>
+        <li *ngFor="let todo of todos">
+          <app-todo
+          *ngIf="(todo.finished && (todo.category === selectedCategory || !selectedCategory))"
+          [todo]="todo"
+          (toggleTodoFinished)=toggleTodoFinished($event)
+          (deleteTodo)=deleteTodo($event)
+          (updateTodo)=updateTodo($event)>
+        </app-todo>
+      </li>
+    </ul>
   </div>
   <br/>
   <button class="add-button" (click)="addTodo()">
