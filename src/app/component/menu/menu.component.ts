@@ -1,26 +1,24 @@
-import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { User } from '../../models/user';
 
 @Component({
   selector: 'app-menu',
-  inputs: ['showMenuView', 'user'],
-  outputs: ['logOutEvent', 'toggleMenuView'],
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent {
+  @Input()
   public showMenuView: boolean;
+  @Input()
   public user: User;
+
+  @Output()
   public logOutEvent = new EventEmitter();
+  @Output()
   public toggleMenuView = new EventEmitter();
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
   goBack() {
-    this.toggleMenuView.next();
+    this.toggleMenuView.emit();
   }
 
   logOut() {

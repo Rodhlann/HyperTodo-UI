@@ -1,20 +1,20 @@
 <div class="header">
   <h1>Settings</h1>
-<div class="menu-back" (click)="goBack()">
+<button class="menu-back" (click)="goBack()">
   <img src="https://cdn3.iconfinder.com/data/icons/virtual-notebook/16/button_close-128.png"/>
-</div>
+</button>
 </div>
 <div class="avatar-menu-view">
   <img src="https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_format_list_numbered_48px-128.png"/>
 </div>
 <div class="user-name">{{user.email}}</div>
 <div class="menu-content">
-  <div class="menu-item">
+  <button class="menu-item">
     <label class="menu-text">Preferences</label>
-  </div>
-  <div class="menu-item" (click)="logOut()">
+  </button>
+  <button class="menu-item" id="log-out" (click)="logOut()">
     <label class="menu-text">Log Out</label>
-  </div>
+  </button>
   <div class="version">
     version 0.1
   </div>

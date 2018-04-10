@@ -20,7 +20,7 @@ describe('TodoService', () => {
     expect(service).toBeTruthy();
   }));
 
-  it(`it calls getTodosByUserId`,
+  it(`calls getTodosByUserId`,
     async(
       inject([HttpClient, HttpTestingController, TodoService],
         (http: HttpClient, backend: HttpTestingController, service: TodoService) => {
@@ -34,7 +34,7 @@ describe('TodoService', () => {
     )
   );
 
-  it(`it calls createTodo`,
+  it(`calls createTodo`,
     async(
       inject([HttpClient, HttpTestingController, TodoService],
         (http: HttpClient, backend: HttpTestingController, service: TodoService) => {
@@ -58,7 +58,7 @@ describe('TodoService', () => {
     )
   );
 
-  it(`it calls updateTodo`,
+  it(`calls updateTodo`,
     async(
       inject([HttpClient, HttpTestingController, TodoService],
         (http: HttpClient, backend: HttpTestingController, service: TodoService) => {
@@ -82,7 +82,7 @@ describe('TodoService', () => {
     )
   );
 
-  it(`it calls deleteTodo`,
+  it(`calls deleteTodo`,
     async(
       inject([HttpClient, HttpTestingController, TodoService],
         (http: HttpClient, backend: HttpTestingController, service: TodoService) => {

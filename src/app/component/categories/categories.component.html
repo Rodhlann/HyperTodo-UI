@@ -25,7 +25,7 @@
     </li>
     <li>
       <div class="todo-note" *ngIf="editing">
-        <input class="todo-input" [(ngModel)]="localCategory" placeholder="Work, Vacation, Pizza Toppings..." />
+        <input class="todo-input" [(ngModel)]=localCategory placeholder="Category name..." />
         <button class="todo-action-confirm" (click)="saveCategory()">
           <img src="https://cdn0.iconfinder.com/data/icons/geosm-e-commerce/48/check-128.png" />
         </button>
