@@ -35,16 +35,16 @@ export class CategoriesComponent implements OnInit {
   saveCategory() {
     this.editing = false;
     if (this.localCategory) {
-      this.createNewCategory.next(this.localCategory);
+      this.createNewCategory.emit(this.localCategory);
       this.localCategory = '';
     }
   }
 
   clickCategory(category) {
-    this.selectCategory.next(category);
+    this.selectCategory.emit(category);
   }
 
   goBack() {
-    this.toggleCategoriesView.next();
+    this.toggleCategoriesView.emit();
   }
 }

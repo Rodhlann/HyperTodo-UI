@@ -7,7 +7,7 @@
     </button>
   </div>
   <div class="todo-note" *ngIf="editing">
-    <input 
+    <input
       #noteInput
       class="todo-input" 
       id=todo-{{todo.id}} 
@@ -16,7 +16,7 @@
     <button class="todo-action-confirm" (click)="stopEditing()">
       <img src="https://cdn0.iconfinder.com/data/icons/geosm-e-commerce/48/check-128.png" />
     </button>
-    <button class="todo-action-confirm" (click)="deleteTodoAction()">
+    <button class="todo-action-confirm" id=delete-todo-{{todo.id}} (click)="deleteTodoAction()">
       <img src="https://cdn0.iconfinder.com/data/icons/very-basic-android-l-lollipop-icon-pack/24/close-128.png" />
     </button>
   </div>

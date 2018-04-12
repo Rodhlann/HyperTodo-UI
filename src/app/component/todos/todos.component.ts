@@ -48,7 +48,7 @@ export class TodosComponent {
   }
 
   stopEditing(event) {
-    this.todo.note = (this.input || this.noteInput.nativeElement.value) || this.todo.note;
+    this.todo.note = (this.input || (this.noteInput && this.noteInput.nativeElement.value)) || this.todo.note;
     this.input = '';
     this.editing = !this.editing;
     this.updateTodo.emit(this.todo);
