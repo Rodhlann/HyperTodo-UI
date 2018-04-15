@@ -16,7 +16,7 @@
     </li>
     <hr/>
     <li *ngFor="let category of categories">
-      <button class="menu-item" (click)="clickCategory(category)">
+      <button class="menu-item secondary-item" (click)="clickCategory(category)">
         <div *ngIf="selectedCategory === category" class="selected-icon">
           <img src="https://cdn2.iconfinder.com/data/icons/font-awesome/1792/circle-thin-128.png" />
         </div>

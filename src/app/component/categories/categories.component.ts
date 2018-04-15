@@ -5,14 +5,12 @@ import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.less']
 })
-export class CategoriesComponent implements OnInit {
+export class CategoriesComponent {
   public editing = false;
   public localCategory: string;
 
   @Input()
   categories: Array<string>;
-  @Input()
-  public showCategoriesView: boolean;
   @Input()
   public selectedCategory: string;
 
@@ -22,11 +20,6 @@ export class CategoriesComponent implements OnInit {
   createNewCategory = new EventEmitter();
   @Output()
   public selectCategory = new EventEmitter();
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
   addCategory() {
     this.editing = true;
